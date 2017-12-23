@@ -18,14 +18,14 @@ function renderTable () {
         } else {
             container
                 .find('#'+rowId)
-                .append('<td><input ' +
-                    'type="text" ' +
-                    'value="' + el.value + '" ' +
+                .append('<td ' +
                     'data-key="' + key + '" ' +
                     'style="font-size:' + el.fontSize + 'px; color: ' + el.cellColor + '; background-color: ' +
-                     el.background + '" ></td>');
+                    el.background + '" ><input type="text" value="' + el.value + '"></td>');
         }
     });
+    $('.loader').fadeOut();
+    $('main').css('display', 'block');
     (function () {
         var thElm;
         var startOffset;
@@ -54,6 +54,42 @@ function renderTable () {
         document.addEventListener('mousemove', function (e) {
             if (thElm) {
                 thElm.style.width = startOffset + e.pageX + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function () {
+            thElm = undefined;
+        });
+    })();
+
+    (function () {
+        var thElm;
+        var startOffset;
+
+        Array.prototype.forEach.call(
+            document.querySelectorAll("table .number"),
+            function (th) {
+                th.style.position = 'relative';
+
+                var grip = document.createElement('div');
+                grip.innerHTML = "&nbsp;";
+                grip.style.left = 0;
+                grip.style.right = 0;
+                grip.style.bottom = 0;
+                grip.style.height = '5px';
+                grip.style.position = 'absolute';
+                grip.style.cursor = 'row-resize';
+                grip.addEventListener('mousedown', function (e) {
+                    thElm = th;
+                    startOffset = th.offsetHeight - e.pageY;
+                });
+
+                th.appendChild(grip);
+            });
+
+        document.addEventListener('mousemove', function (e) {
+            if (thElm) {
+                thElm.style.height = startOffset + e.pageY + 'px';
             }
         });
 

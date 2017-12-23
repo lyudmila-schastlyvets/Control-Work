@@ -39,7 +39,7 @@ gulp.task('scripts', function () {
     .pipe(source('./src/js/index.js'))
     .pipe(buffer())
     .pipe(plumber())
-    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.init())
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))

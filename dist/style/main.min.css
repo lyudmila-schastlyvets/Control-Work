@@ -1,2 +1,2 @@
-table .number,table th{text-align:center;background-color:#4bb3af}table input{width:100px}.active{border:1px solid #000}
+table .number,table th{text-align:center;background-color:#4bb3af}table input{min-height:20px;width:100px}.active{border:1px solid #000}.control-panel{margin-bottom:10px;display:flex;flex-wrap:wrap}.control-panel div{margin-right:10px}
 /*# sourceMappingURL=main.min.css.map */

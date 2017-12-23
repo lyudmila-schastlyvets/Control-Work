@@ -1,15 +1,13 @@
-# control work
+# Control Work
 
 ### Description
 
-Project with gulp (build and watch), minify files and concatenate them. 
-All code is separated in different files, scripts and styles. 
-here is a simple analog of google spreadsheets:
+Here is a simple analog of google spreadsheets:
 1. Cols
 2. Rows
 3. Font-size, color and background of cells are dynamically changed
 4. Resize: Width of columns and height of rows are dynamically changed
-5. Save in storageData is stored in localStorage
+5. Cells are stored in localStorage
 
 ### Prerequisites
 
@@ -31,4 +29,4 @@ Node.js
 
 ### Technologies Used
 
-JavaScript, CSS, HTML5.
+Jquery, JavaScript, CSS, HTML5.

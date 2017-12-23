@@ -9,14 +9,16 @@ function renderTable () {
     thead.forEach(function (el) {
         container.find('thead tr').append('<th>' + el.letter + '</th>')
     });
-    var id;
-    table.forEach(function (el) {
+    var rowId;
+    table.forEach(function (el, key) {
         if(el.id.replace("@", '') != el.id) {
-            id = 'row' + el.id.replace("@", '');
-            container.find('tbody').append('<tr id="' + id + '" class="number"></tr>');
-            container.find('#'+id).append('<td>' + el.id.replace("@", '') + '</td>');
+            rowId = 'row' + el.number;
+            container.find('tbody').append('<tr id="' + rowId + '" class="number"></tr>');
+            container.find('#'+rowId).append('<td>' + el.number + '</td>');
         } else {
-            container.find('#'+id).append('<td><input type="text" value=""></td>');
+            container
+                .find('#'+rowId)
+                .append('<td><input type="text" value="' + el.value + '" data-key="' + key + '"></td>');
         }
     });
 }

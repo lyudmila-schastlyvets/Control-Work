@@ -23,7 +23,8 @@ function cellInit () {
             var cell = {
                 id: id,
                 letter: letter,
-                value: '000',
+                number: i,
+                value: '',
                 cellColor: 'black',
                 background: 'white',
                 fontSize: '12'

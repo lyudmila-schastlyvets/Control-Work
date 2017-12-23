@@ -28,7 +28,7 @@ function cellInit () {
                 cellColor: 'black',
                 background: 'white',
                 fontSize: '12'
-            }
+            };
             if (i == 0) {
                 tableHead.push(cell);
             } else {
@@ -36,8 +36,8 @@ function cellInit () {
             }
         }
     }
-    storage.set('tbody', tableCells)
-    storage.set('thead', tableHead)
+    storage.set('tbody', tableCells);
+    storage.set('thead', tableHead);
 }
 
 export { cellInit }

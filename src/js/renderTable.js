@@ -13,12 +13,17 @@ function renderTable () {
     table.forEach(function (el, key) {
         if(el.id.replace("@", '') != el.id) {
             rowId = 'row' + el.number;
-            container.find('tbody').append('<tr id="' + rowId + '" class="number"></tr>');
-            container.find('#'+rowId).append('<td>' + el.number + '</td>');
+            container.find('tbody').append('<tr id="' + rowId + '"></tr>');
+            container.find('#'+rowId).append('<td class="number">' + el.number + '</td>');
         } else {
             container
                 .find('#'+rowId)
-                .append('<td><input type="text" value="' + el.value + '" data-key="' + key + '"></td>');
+                .append('<td><input ' +
+                    'type="text" ' +
+                    'value="' + el.value + '" ' +
+                    'data-key="' + key + '" ' +
+                    'style="font-size:' + el.fontSize + 'px; color: ' + el.cellColor + '; background-color: ' +
+                     el.background + '" ></td>');
         }
     });
 }
